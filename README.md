@@ -41,7 +41,7 @@ cd magnetic-one-langgraph
 
 ### Contributing
 
-Please check the following [CONTRIBUTING](CONTRIBUTING.md) file to know how to contirbute to the project.
+Please check the following [CONTRIBUTING](CONTRIBUTING.md) file to know how to contribute to the project.
 
 ### Code of Conduct
 
