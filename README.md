@@ -37,4 +37,16 @@ To get involved, clone the repo, check out the initial draft in LangGraph, and r
 ```bash
 git clone https://github.com/EmmanuelRTM/magnetic-one-langgraph.git
 cd magnetic-one-langgraph
-# Install dependencies as required
+```
+
+### Contributing
+
+Please check the following [CONTRIBUTING](CONTRIBUTING.md) file to know how to contirbute to the project.
+
+### Code of Conduct
+
+Please check the following [CODE OF CONDUCT](CONTRIBUTING.md).
+
+### License
+
+This project is licensed under the [MIT License](LICENSE).
