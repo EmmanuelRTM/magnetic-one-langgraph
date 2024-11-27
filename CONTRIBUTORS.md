@@ -18,7 +18,7 @@ Alternatively, let us know in the Pull Request comments if you’d like us to ad
 ## 🌟 List of Contributors
 
 ### Maintainers
-- **John Doe**  
+- **Mario Rodriguez**  
   [GitHub Profile](https://github.com/EmmanuelRTM)  
   Role: Lead Developer  
 
