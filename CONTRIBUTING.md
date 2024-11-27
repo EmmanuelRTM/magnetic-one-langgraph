@@ -92,7 +92,7 @@ Go to the original repository and open a Pull Request (PR) from your branch to t
 - Screenshots or logs (if applicable).
 
 ### 6. Add you as a contributor
-- Once your Pull Request (PR) is reviewed and accepted, please follow [CONTRIBUTORS][CONTRIBUTORS.md] file.
+- Once your Pull Request (PR) is reviewed and accepted, please follow [CONTRIBUTORS](CONTRIBUTORS.md) file.
 
 ---
 
