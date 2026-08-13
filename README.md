@@ -25,11 +25,11 @@ These references provide insights into the original design, architecture, and go
 
 ## Getting Started
 
-To get involved, clone the repo, check out the initial draft in LangGraph, and run tests to see it in action. 
+To get involved, clone the repo, check out the LangGraph implementation, and run the tests to see it in action.
 
 ### Prerequisites
 
-- **LangGraph** installed.
+- **Python 3.10+**
 - Familiarity with multi-agent systems is recommended.
 
 ### Installation
@@ -37,7 +37,49 @@ To get involved, clone the repo, check out the initial draft in LangGraph, and r
 ```bash
 git clone https://github.com/EmmanuelRTM/magnetic-one-langgraph.git
 cd magnetic-one-langgraph
+pip install -e ".[test]"
 ```
+
+This installs the package together with **LangGraph 1.x** and pytest. No API keys are required to run the scaffold — the agents are deterministic placeholders you can replace with LLM-backed implementations (`pip install -e ".[llm]"` adds `langchain` and `langchain-openai` for that).
+
+### Usage
+
+Run the demo task system from the command line:
+
+```bash
+python -m magnetic_one_langgraph "Analyze new market trends and compile a report."
+```
+
+or from Python:
+
+```python
+from magnetic_one_langgraph import build_graph, run_task_system
+
+final_state = run_task_system("Analyze new market trends and compile a report.")
+print(final_state["final_report"])
+```
+
+The [notebook](magnetic-one-langgraph.ipynb) walks through the workflow, the diagram, and the code step by step.
+
+### Project layout
+
+```
+src/magnetic_one_langgraph/
+├── state.py         # TypedDict state schema with reducers (messages, Task Ledger)
+├── agents.py        # WebSurfer, FileSurfer, Coder, ComputerTerminal worker nodes
+├── orchestrator.py  # Outer/inner loop: planning, stall detection, reflection, final report
+├── graph.py         # StateGraph wiring (workers report back to the Orchestrator)
+└── runner.py        # run_task_system entry point
+tests/               # Unit and integration tests (pytest)
+```
+
+### Running the tests
+
+```bash
+pytest -v
+```
+
+The suite covers the state reducers, the Orchestrator's loop logic (completion, stall/reflection, replan budget), each worker agent, and an end-to-end graph run — including a regression test for [issue #1](https://github.com/EmmanuelRTM/magnetic-one-langgraph/issues/1) (`InvalidUpdateError: Must write to at least one of []`), which was caused by using a plain Python class as the graph state. Version `0.1.0` migrates the original `0.0.1` notebook draft to the LangGraph 1.x APIs: the state is now a `TypedDict` with reducers, nodes return partial updates, and the Orchestrator routes dynamically via `Command`.
 
 ### Contributing
 
@@ -45,7 +87,7 @@ Please check the following [CONTRIBUTING](CONTRIBUTING.md) file to know how to c
 
 ### Code of Conduct
 
-Please check the following [CODE OF CONDUCT](CONTRIBUTING.md).
+Please check the following [CODE OF CONDUCT](CODE_OF_CONDUCT.md).
 
 ### License
 

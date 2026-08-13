@@ -1,1 +1,13 @@
 .env
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.pytest_cache/
+.venv/
+
+# Jupyter
+.ipynb_checkpoints/
