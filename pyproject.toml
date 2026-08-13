@@ -1,0 +1,34 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "magnetic-one-langgraph"
+version = "0.1.0"
+description = "Open-source adaptation of Microsoft's Magnetic-One multi-agent system to LangGraph"
+readme = "README.md"
+license = { file = "LICENSE" }
+requires-python = ">=3.10"
+dependencies = [
+    "langgraph>=1.0,<2.0",
+]
+
+[project.optional-dependencies]
+# Only needed when wiring real LLM-backed agents into the scaffold.
+llm = [
+    "langchain>=1.0,<2.0",
+    "langchain-openai>=1.0,<2.0",
+]
+test = [
+    "pytest>=8.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/EmmanuelRTM/magnetic-one-langgraph"
+Issues = "https://github.com/EmmanuelRTM/magnetic-one-langgraph/issues"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
